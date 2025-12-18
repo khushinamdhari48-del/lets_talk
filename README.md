@@ -23,7 +23,7 @@ The project demonstrates practical skills in:
 - **React (Vite)** – Frontend UI and state management
 - **Web Audio API** – Raw audio capture (PCM)
 - **Deepgram API** – Real-time speech-to-text transcription
-- **Rust** – Native backend (via Tauri)
+- **Rust** – Native backend (via Tauri);
 
 ---
 
@@ -60,3 +60,47 @@ The project demonstrates practical skills in:
 ---
 
 ### Transcription Pipeline
+
+Microphone
+↓
+Web Audio API (PCM)
+↓
+WebSocket
+↓
+Deepgram (Speech-to-Text)
+↓
+Live UI Updates
+
+---
+
+### Separation of Concerns
+
+- `App.jsx`  
+  Handles UI, push-to-talk logic, and audio lifecycle.
+
+- `deepgram.js`  
+  Responsible only for Deepgram WebSocket connection and message parsing.
+
+This keeps the code clean, testable, and easy to extend.
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- Rust & Cargo
+- Visual Studio Build Tools (Windows, C++ workload)
+- Deepgram API key
+
+---
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+VITE_DEEPGRAM_API_KEY=your_real_deepgram_api_key
+
+```
